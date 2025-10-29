@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Sparkles, Coffee, Leaf } from "lucide-react";
+import cafeExterior from "@/assets/cafe-exterior.jpg";
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -29,7 +30,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-75 ease-out"
         style={{
-          backgroundImage: `url(${"/src/assets/cafe-exterior.jpg"})`,
+          backgroundImage: `url(${cafeExterior})`,
           transform: `translateY(${scrollY * 0.5}px) scale(1.1)`,
         }}
       >
