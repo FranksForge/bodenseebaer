@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Star, Quote, Users, MessageCircle, Heart } from "lucide-react";
+import reviewerMaiLinh from "@/assets/reviewer-mai-linh.jpg";
+import reviewerTomWilson from "@/assets/reviewer-tom-wilson.jpg";
+import reviewerLinhTran from "@/assets/reviewer-linh-tran.jpg";
 
 const testimonials = [
   {
@@ -7,7 +10,7 @@ const testimonials = [
     handle: "@mai_danang",
     rating: 5,
     text: "CRAFT Café on Nguyễn Duy Hiệu is my favorite workspace in Đà Nẵng! Love following @craft_cafe.dn for their daily updates. Perfect coffee, perfect vibes! 🇻🇳☕",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+    image: reviewerMaiLinh,
     verified: true
   },
   {
@@ -15,7 +18,7 @@ const testimonials = [
     handle: "@tom_nomad",
     rating: 5,
     text: "Found CRAFT through their Instagram @craft_cafe.dn - best discovery in Sơn Trà! Authentic Vietnamese coffee, fast WiFi, amazing atmosphere. Digital nomad paradise! 🌏",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    image: reviewerTomWilson,
     verified: true
   },
   {
@@ -23,7 +26,7 @@ const testimonials = [
     handle: "@linh_coffee",
     rating: 5,
     text: "Quán cà phê đẹp nhất An Hải Đông! Their IG @craft_cafe.dn always shows the most aesthetic shots. DMed them for a reservation and they're so responsive! ❤️",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    image: reviewerLinhTran,
     verified: true
   }
 ];
