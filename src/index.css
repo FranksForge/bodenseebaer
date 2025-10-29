@@ -71,8 +71,46 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Modern animations */
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Initial hidden states for smooth animations */
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-on-scroll.fade-up {
+    transform: translateY(30px);
+  }
+
+  .animate-on-scroll.scale {
+    transform: scale(0.95);
+  }
+
+  .animate-on-scroll.slide-left {
+    transform: translateX(-30px);
+  }
+
+  .animate-on-scroll.slide-right {
+    transform: translateX(30px);
   }
 
   @keyframes float {
@@ -80,15 +118,164 @@ All colors MUST be HSL.
     50% { transform: translateY(-20px); }
   }
 
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Modern hover effects */
   .parallax {
     will-change: transform;
   }
 
   .hover-lift {
-    transition: var(--transition-smooth);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .hover-lift:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
+
+  .hover-glow {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .hover-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(95, 18, 65, 0.3);
+  }
+
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* Floating elements */
+  .floating-element {
+    animation: gentleFloat 8s ease-in-out infinite;
+  }
+
+  .floating-element-delayed {
+    animation: gentleFloat 8s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+
+  @keyframes gentleFloat {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+    }
+    33% { 
+      transform: translateY(-15px) rotate(1deg); 
+    }
+    66% { 
+      transform: translateY(-8px) rotate(-1deg); 
+    }
+  }
+
+  /* Modern gradients */
+  .gradient-radial {
+    background: radial-gradient(ellipse at center, var(--primary) 0%, transparent 70%);
+  }
+
+  .gradient-conic {
+    background: conic-gradient(from 180deg at 50% 50%, var(--primary) 0deg, var(--secondary) 360deg);
+  }
+
+  /* Typography effects */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-strong {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Modern spacing and positioning */
+  .container-modern {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-modern {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-modern {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.15s; }
+  .stagger-3 { animation-delay: 0.2s; }
+  .stagger-4 { animation-delay: 0.25s; }
+  .stagger-5 { animation-delay: 0.3s; }
+  .stagger-6 { animation-delay: 0.35s; }
 }
