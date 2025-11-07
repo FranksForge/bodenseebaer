@@ -8,7 +8,7 @@ const SEO = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Bodenseebär",
-    "image": "https://bodenseebaer.sichtbar-seiten.de/og_image.png",
+    "image": "https://bodenseebaer.sichtbar-seiten.de/og_image.jpg",
     "@id": "https://bodenseebaer.sichtbar-seiten.de",
     "url": "https://bodenseebaer.sichtbar-seiten.de",
     "telephone": "+4917474716412",
