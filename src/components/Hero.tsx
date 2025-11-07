@@ -6,6 +6,14 @@ const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [zoomScale, setZoomScale] = useState(1.0);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Preload hero image
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroImage;
+    img.onload = () => setImageLoaded(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -54,13 +62,24 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden bg-slate-900">
       {/* Background image with enhanced parallax and slow zoom */}
+      {/* Preload image with hidden img element for faster loading */}
+      <img 
+        src={heroImage}
+        alt=""
+        className="hidden"
+        loading="eager"
+        fetchPriority="high"
+        onLoad={() => setImageLoaded(true)}
+      />
       <div 
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-75 ease-out"
+        className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-out"
         style={{
           backgroundImage: `url(${heroImage})`,
           transform: `translateY(${scrollY * 0.5}px) scale(${zoomScale})`,
+          backgroundColor: '#0f172a', // Fallback color matching the image dark tones
+          opacity: imageLoaded ? 1 : 0.3, // Show partial opacity while loading
         }}
       >
         {/* Modern gradient overlay - lighter for better visibility */}
