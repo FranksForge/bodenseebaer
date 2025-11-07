@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { MapPin, Clock, Instagram, Phone, Star, Navigation, Wifi, Car, Coffee } from "lucide-react";
+import { MapPin, Clock, Phone, Navigation, Car, ShoppingBag, Waves } from "lucide-react";
 
 
 const amenities = [
-  { icon: Wifi, label: "Free WiFi", description: "High-speed internet" },
-  { icon: Car, label: "Parking", description: "Motorbike & car spots" },
-  { icon: Coffee, label: "Specialty Coffee", description: "Artisan roasted beans" },
-  { icon: Navigation, label: "Easy Access", description: "Near city center" }
+  { icon: Car, label: "Parkplätze", description: "In der Nähe verfügbar" },
+  { icon: Navigation, label: "Zentral gelegen", description: "In Hagnau am See" },
+  { icon: ShoppingBag, label: "Große Auswahl", description: "Vielseitige Produkte" },
+  { icon: Waves, label: "Am Bodensee", description: "Perfekte Lage" }
 ];
 
 const Location = () => {
@@ -47,14 +47,14 @@ const Location = () => {
         <div className={`mb-20 text-center animate-on-scroll fade-up ${isVisible ? 'animate-fade-in-up' : ''}`}>
           <div className="relative inline-block">
             <h2 className="mb-6 text-5xl font-bold text-charcoal md:text-6xl lg:text-7xl">
-              Visit <span className="text-gradient">Us</span>
+              Besuchen Sie <span className="text-gradient">uns</span>
             </h2>
             <div className="absolute -top-4 -right-8 text-primary/20">
               <MapPin className="h-8 w-8 animate-pulse" />
             </div>
           </div>
           <p className="mx-auto max-w-3xl text-xl text-muted-foreground leading-relaxed">
-            Find us nestled in the heart of Da Nang, where every visit feels like coming home
+            Besuchen Sie uns in Hagnau am Bodensee und entdecken Sie unsere Auswahl
           </p>
         </div>
 
@@ -63,16 +63,16 @@ const Location = () => {
           <div className={`space-y-8 animate-on-scroll slide-left ${isVisible ? 'animate-slide-in-left' : ''}`}>
             {/* Map Section */}
             <div className="glass-card rounded-3xl overflow-hidden shadow-2xl relative group cursor-pointer" 
-                 onClick={() => window.open('https://maps.app.goo.gl/xprW7yVv9qFFta9c7', '_blank')}>
+                 onClick={() => window.open('https://www.google.com/maps/place/Bodenseebär/@47.674195,9.304015,15z/data=!4m7!3m6!1s0x479af9f0723d9769:0xebdffdab1f93641e!8m2!3d47.674195!4d9.3158409!15sChRib2RlbnNlZSBiw6RyIGhhZ25hdVoWIhRib2RlbnNlZSBiw6RyIGhhZ25hdZIBBXN0b3JlmgEjQ2haRFNVaE5NRzluUzBWSlEwRm5UVU5KYTB4dWJVOTNFQUXgAQD6AQUIkAEQEg!16s%2Fg%2F11tw_st1pj', '_blank')}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.020547405829!2d108.23767!3d16.0645104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDAzJzUyLjIiTiAxMDjCsDE0JzE1LjYiRQ!5e0!3m2!1sen!2s!4v1635959473267&q=126%2F20+Nguy%E1%BB%85n+Duy+Hi%E1%BB%87u%2C+An+H%E1%BA%A3i+%C4%90%C3%B4ng%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2690.123456789!2d9.3158409!3d47.674195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479af9f0723d9769%3A0xebdffdab1f93641e!2sBodenseeb%C3%A4r!5e0!3m2!1sde!2sde!4v1234567890123!5m2!1sde!2sde"
                 width="100%"
                 height="400"
                 style={{ border: 0, pointerEvents: 'none' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="CRAFT Café Đà Nẵng - 126/20 Nguyễn Duy Hiệu"
+                title="Bodenseebär - Seestraße 32, Hagnau am Bodensee"
                 className="rounded-3xl transition-all duration-300 group-hover:scale-105"
               />
               
@@ -81,28 +81,16 @@ const Location = () => {
                 <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 glass-dark rounded-2xl px-4 py-2 text-white">
                   <div className="flex items-center gap-2">
                     <Navigation className="h-4 w-4" />
-                    <span className="text-sm font-medium">Click to open in Maps</span>
+                    <span className="text-sm font-medium">In Google Maps öffnen</span>
                   </div>
                 </div>
               </div>
               
-              {/* Map overlay info */}
-              <div className="absolute top-6 left-6 glass-dark rounded-2xl p-4 text-white pointer-events-none">
-                <div className="flex items-center gap-2 mb-2">
-                  <MapPin className="h-4 w-4" />
-                  <span className="font-semibold">CRAFT Café</span>
-                </div>
-                <p className="text-sm opacity-90">Sơn Trà, Đà Nẵng</p>
-                <div className="flex items-center gap-2 mt-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-xs">Open Now</span>
-                </div>
-              </div>
             </div>
 
             {/* Amenities */}
             <div className={`animate-on-scroll fade-up ${isVisible ? 'animate-fade-in-up stagger-1' : ''}`}>
-              <h3 className="mb-6 text-2xl font-bold text-charcoal">What We Offer</h3>
+              <h3 className="mb-6 text-2xl font-bold text-charcoal">Was wir bieten</h3>
               <div className="grid grid-cols-2 gap-4">
                 {amenities.map((amenity, index) => (
                   <div key={index} className="glass rounded-xl p-4 text-center hover-lift">
@@ -126,17 +114,17 @@ const Location = () => {
                       <MapPin className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="mb-2 text-xl font-semibold text-charcoal">Address</h3>
+                      <h3 className="mb-2 text-xl font-semibold text-charcoal">Adresse</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        126/20 Nguyễn Duy Hiệu<br />
-                        An Hải Đông, Sơn Trà<br />
-                        Đà Nẵng 550000, Vietnam
+                        Seestraße 32<br />
+                        88709 Hagnau am Bodensee<br />
+                        Deutschland
                       </p>
                       <button 
                         className="mt-3 text-primary hover:text-primary/80 font-medium text-sm transition-colors"
-                        onClick={() => window.open('https://maps.app.goo.gl/xprW7yVv9qFFta9c7', '_blank')}
+                        onClick={() => window.open('https://www.google.com/maps/place/Bodenseebär/@47.674195,9.304015,15z/data=!4m7!3m6!1s0x479af9f0723d9769:0xebdffdab1f93641e!8m2!3d47.674195!4d9.3158409!15sChRib2RlbnNlZSBiw6RyIGhhZ25hdVoWIhRib2RlbnNlZSBiw6RyIGhhZ25hdZIBBXN0b3JlmgEjQ2haRFNVaE5NRzluUzBWSlEwRm5UVU5KYTB4dWJVOTNFQUXgAQD6AQUIkAEQEg!16s%2Fg%2F11tw_st1pj', '_blank')}
                       >
-                        Get Directions →
+                        Route anzeigen →
                       </button>
                     </div>
                   </div>
@@ -148,14 +136,14 @@ const Location = () => {
                       <Clock className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="mb-2 text-xl font-semibold text-charcoal">Hours</h3>
+                      <h3 className="mb-2 text-xl font-semibold text-charcoal">Öffnungszeiten</h3>
                       <div className="space-y-1 text-muted-foreground">
-                        <p>Daily: <span className="font-medium">7:30 AM – 7:30 PM</span></p>
-                        <p className="text-sm">Every day of the week</p>
+                        <p>Bitte <span className="font-medium">kontaktieren Sie uns</span> für aktuelle Öffnungszeiten</p>
+                        <p className="text-sm">oder besuchen Sie uns vor Ort</p>
                       </div>
                       <div className="mt-3 flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-green-600 font-medium text-sm">Open Now</span>
+                        <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                        <span className="text-primary font-medium text-sm">Geschäft geöffnet</span>
                       </div>
                     </div>
                   </div>
@@ -167,25 +155,16 @@ const Location = () => {
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="mb-2 text-xl font-semibold text-charcoal">Contact</h3>
+                      <h3 className="mb-2 text-xl font-semibold text-charcoal">Kontakt</h3>
                       <div className="space-y-2">
-                        <a href="tel:+84902009981" className="block text-muted-foreground hover:text-primary transition-colors">
-                          +84 902 009 981
-                        </a>
-                        <a href="mailto:info@craftcafe-danang.com" className="block text-muted-foreground hover:text-primary transition-colors">
-                          info@craftcafe-danang.com
+                        <a href="tel:+4917474716412" className="block text-muted-foreground hover:text-primary transition-colors">
+                          +49 174 74716412
                         </a>
                         <div className="pt-2">
-                          <p className="text-sm font-medium text-charcoal mb-1">Best way to reach us:</p>
-                          <a 
-                            href="https://www.instagram.com/craft_cafe.dn/" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm transition-colors"
-                          >
-                            <Instagram className="h-4 w-4" />
-                            @craft_cafe.dn
-                          </a>
+                          <p className="text-sm font-medium text-charcoal mb-1">Besuchen Sie uns:</p>
+                          <p className="text-sm text-muted-foreground">
+                            Seestraße 32, Hagnau am Bodensee
+                          </p>
                         </div>
                       </div>
                     </div>

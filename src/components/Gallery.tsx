@@ -1,68 +1,88 @@
 import { useEffect, useRef, useState } from "react";
-import { X, ZoomIn, Download, Share2, Camera, Instagram } from "lucide-react";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
-import gallery7 from "@/assets/gallery-7.jpg";
-import gallery8 from "@/assets/gallery-8.jpg";
-import gallery9 from "@/assets/gallery-9.jpg";
-import gallery10 from "@/assets/gallery-10.jpg";
+import { X, ZoomIn, Camera, ShoppingBag } from "lucide-react";
+// Group 1 images
+import badeschuhe0 from "@/assets/products/group1/badeschuhe0.jpg";
+import badeschuh1 from "@/assets/products/group1/badeschuh1.JPG";
+import badeschuh2 from "@/assets/products/group1/badeschuh2.JPG";
+import badeschuh3 from "@/assets/products/group1/badeschuh3.JPG";
+import mainUndvielesmehr2 from "@/assets/products/group1/main_undvielesmehr2.jpg";
+// Group 2 images
+import mainSeemode from "@/assets/products/group2/main_01seemode.jpg";
+import tasche1 from "@/assets/products/group2/tachee1.JPG";
+import tasche2 from "@/assets/products/group2/tasche2.JPG";
+import tasche3 from "@/assets/products/group2/tasche3.JPG";
+import tasche4 from "@/assets/products/group2/tasche4.JPG";
+// Group 3 images
+import allesfuerdensee1 from "@/assets/products/group3/02allesfuerdensee.jpg";
+import allesfuerdensee2 from "@/assets/products/group3/03allesfuerdensee2.jpg";
+import mainUndvielmehr1 from "@/assets/products/group3/main_undvielmehr1.jpg";
+import tasche5 from "@/assets/products/group3/tasche5.JPG";
+import tasche6 from "@/assets/products/group3/tasche6.JPG";
+
+// Group 1: Badeschuhe + Produktvielfalt
+const group1 = {
+  title: "Badeschuhe & Accessoires",
+  subtitle: "Für sicheren Stand am See",
+  smallImages: [
+    { src: badeschuhe0, alt: "Badeschuhe Auswahl - Bodenseebär", category: "Badeschuhe" },
+    { src: badeschuh1, alt: "Badeschuhe - Modell 1", category: "Badeschuhe" },
+    { src: badeschuh2, alt: "Badeschuhe - Modell 2", category: "Badeschuhe" },
+    { src: badeschuh3, alt: "Badeschuhe - Modell 3", category: "Badeschuhe" },
+  ],
+  mainImage: { src: mainUndvielesmehr2, alt: "Produktvielfalt - Bodenseebär Hagnau", category: "Vieles Mehr" },
+};
+
+// Group 2: Taschen + Seemode
+const group2 = {
+  title: "Seemode & Taschen",
+  subtitle: "Stylisch und praktisch für Ihren Seetag",
+  smallImages: [
+    { src: tasche1, alt: "Tasche - Modell 1", category: "Taschen" },
+    { src: tasche2, alt: "Tasche - Modell 2", category: "Taschen" },
+    { src: tasche3, alt: "Tasche - Modell 3", category: "Taschen" },
+    { src: tasche4, alt: "Tasche - Modell 4", category: "Taschen" },
+  ],
+  mainImage: { src: mainSeemode, alt: "Seemode Kollektion - Bodenseebär", category: "Seemode" },
+};
+
+// Group 3: Taschen + Alles für den See + Vieles mehr
+const group3 = {
+  title: "Und vieles mehr",
+  subtitle: "Entdecken Sie unsere Vielfalt am schönen Bodensee",
+  smallImages: [
+    { src: tasche5, alt: "Tasche - Modell 5", category: "Taschen" },
+    { src: tasche6, alt: "Tasche - Modell 6", category: "Taschen" },
+    { src: allesfuerdensee1, alt: "Alles für den See - Kollektion 1", category: "Seemode" },
+    { src: allesfuerdensee2, alt: "Alles für den See - Kollektion 2", category: "Seemode" },
+  ],
+  mainImage: { src: mainUndvielmehr1, alt: "Weitere Produkte - Vieles mehr am Bodensee", category: "Vieles Mehr" },
+};
 
 const galleryRows = [
-  // Row 1: 4 small (left) + 1 big (right)
+  // Gruppe 1: 4 x Badeschuhe (klein) + Produktvielfalt (groß)
   {
+    title: group1.title,
+    subtitle: group1.subtitle,
     type: "small-left-big-right",
-    smallImages: [
-      { 
-        src: gallery4, 
-        alt: "Banutella - A must try signature dish"
-      },
-      { 
-        src: gallery8, 
-        alt: "Organic fresh juices and smoothies"
-      },
-      { 
-        src: gallery7, 
-        alt: "Caramelized gluten-free pancakes"
-      },
-      { 
-        src: gallery9, 
-        alt: "Fresh smoothies and seasonal specials"
-      }
-    ],
-    bigImage: {
-      src: gallery2, 
-      alt: "CRAFT Café - A hidden gem in Da Nang"
-    }
+    smallImages: group1.smallImages,
+    bigImage: group1.mainImage,
   },
-  
-  // Row 2: 1 big (left) + 4 small (right)  
+  // Gruppe 2: Seemode (groß) + 4 x Taschen (klein)
   {
+    title: group2.title,
+    subtitle: group2.subtitle,
     type: "big-left-small-right",
-    bigImage: {
-      src: gallery6, 
-      alt: "Comfy seating in our green sanctuary"
-    },
-    smallImages: [
-      { 
-        type: "instagram-card"
-      },
-      { 
-        src: gallery5, 
-        alt: "Close to nature dining experience"
-      },
-      { 
-        src: gallery1, 
-        alt: "Daily coffee moments at CRAFT"
-      },
-      { 
-        src: gallery10, 
-        alt: "Artisan coffee creation"
-      }
-    ]
-  }
+    smallImages: group2.smallImages,
+    bigImage: group2.mainImage,
+  },
+  // Gruppe 3: 4 x Bilder (klein) + Vieles mehr (groß)
+  {
+    title: group3.title,
+    subtitle: group3.subtitle,
+    type: "small-left-big-right",
+    smallImages: group3.smallImages,
+    bigImage: group3.mainImage,
+  },
 ];
 
 const Gallery = () => {
@@ -119,7 +139,7 @@ const Gallery = () => {
           <div className="absolute top-32 left-20 w-36 h-36 rounded-full gradient-radial opacity-5 floating-element" />
           <div className="absolute bottom-40 right-24 w-28 h-28 rounded-full bg-secondary/5 blur-2xl floating-element-delayed" />
           <Camera className="absolute top-20 right-32 h-10 w-10 text-primary/5 floating-element" />
-          <Instagram className="absolute bottom-20 left-32 h-8 w-8 text-primary/5 floating-element-delayed" />
+          <ShoppingBag className="absolute bottom-20 left-32 h-8 w-8 text-primary/5 floating-element-delayed" />
         </div>
 
         <div className="container-modern">
@@ -127,27 +147,54 @@ const Gallery = () => {
           <div className={`mb-20 text-center animate-on-scroll fade-up ${isVisible ? 'animate-fade-in-up' : ''}`}>
             <div className="relative inline-block">
               <h2 className="mb-6 text-5xl font-bold text-charcoal md:text-6xl lg:text-7xl">
-                <span className="text-gradient">Gallery</span>
+                Unsere <span className="text-gradient">Produkte</span>
           </h2>
               <div className="absolute -top-4 -right-8 text-primary/20">
-                <Camera className="h-8 w-8 animate-pulse" />
+                <ShoppingBag className="h-8 w-8 animate-pulse" />
               </div>
             </div>
             <p className="mx-auto max-w-3xl text-xl text-muted-foreground leading-relaxed">
-              Sunlight, shadows, and stories—captured in moments that tell our tale
-          </p>
-        </div>
+              Entdecken Sie unsere vielfältige Auswahl an Produkten für den perfekten Tag am Bodensee
+            </p>
+            
+            {/* Product Categories List */}
+            <nav aria-label="Produktkategorien" className="mt-8 flex flex-wrap items-center justify-center gap-3 md:gap-4">
+              <span className="text-base font-medium text-charcoal">Seemode</span>
+              <span className="text-primary">•</span>
+              <span className="text-base font-medium text-charcoal">Taschen</span>
+              <span className="text-primary">•</span>
+              <span className="text-base font-medium text-charcoal">Badeschuhe</span>
+              <span className="text-primary">•</span>
+              <span className="text-base font-medium text-charcoal">Accessoires</span>
+              <span className="text-primary">•</span>
+              <span className="text-base font-medium text-charcoal">Kaltgetränke</span>
+              <span className="text-primary">•</span>
+              <span className="text-base font-medium text-primary">Und Vieles mehr</span>
+            </nav>
+          </div>
 
           {/* Structured Gallery Layout */}
-          <div className="space-y-12 max-w-7xl mx-auto">
+          <div className="space-y-16 max-w-7xl mx-auto">
             {galleryRows.map((row, rowIndex) => (
-              <div 
-                key={rowIndex}
-                className={`grid grid-cols-1 lg:grid-cols-5 gap-6 animate-on-scroll fade-up ${
-                  isVisible ? 'animate-fade-in-up' : ''
-                }`}
-                style={{ animationDelay: `${rowIndex * 0.2}s` }}
-              >
+              <article key={rowIndex} className="space-y-6">
+                {/* Subheader */}
+                <header className="text-center mb-8">
+                  <h3 className="text-3xl md:text-4xl font-bold text-charcoal mb-2">
+                    {row.title}
+                  </h3>
+                  {row.subtitle && (
+                    <p className="text-lg text-muted-foreground font-light">
+                      {row.subtitle}
+                    </p>
+                  )}
+                </header>
+                
+                <div 
+                  className={`grid grid-cols-1 lg:grid-cols-5 gap-6 animate-on-scroll fade-up ${
+                    isVisible ? 'animate-fade-in-up' : ''
+                  }`}
+                  style={{ animationDelay: `${rowIndex * 0.2}s` }}
+                >
                 {row.type === "small-left-big-right" ? (
                   <>
                     {/* 4 Small Images - Left Side */}
@@ -272,71 +319,25 @@ const Gallery = () => {
                       </div>
                     </div>
 
-                    {/* 4 Small Images - Right Side */}
+                    {/* Small Images - Right Side */}
                     <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-                      {row.smallImages.map((image, index) => {
-                        // Handle Instagram Card
-                        if (image.type === "instagram-card") {
-                          return (
-                            <div
-                              key={`instagram-${index}`}
-                              className="group relative cursor-pointer animate-scale-in"
-                              style={{ animationDelay: `${(rowIndex * 5 + index + 1) * 0.1}s` }}
-                              onClick={() => window.open('https://ig.me/m/craft_cafe.dn', '_blank')}
-                            >
-                              <div className="glass-card rounded-2xl overflow-hidden hover-lift transition-all duration-500 group-hover:shadow-2xl">
-                                <div className="aspect-square bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex flex-col items-center justify-center p-4 text-center relative overflow-hidden">
-                                  
-                                  {/* Background Pattern */}
-                                  <div className="absolute inset-0 opacity-10">
-                                    <div className="absolute top-2 left-2 w-4 h-4 rounded-full bg-white/20"></div>
-                                    <div className="absolute bottom-3 right-3 w-6 h-6 rounded-full bg-white/10"></div>
-                                    <div className="absolute top-1/2 right-2 w-3 h-3 rounded-full bg-white/15"></div>
-                                  </div>
-
-                                  {/* Instagram Icon */}
-                                  <div className="glass-dark rounded-full p-2 mb-2 group-hover:scale-110 transition-transform duration-300">
-                                    <Instagram className="h-4 w-4 text-amber-400" />
-                                  </div>
-
-                                  {/* Content */}
-                                  <h4 className="text-sm font-bold text-charcoal mb-1">Follow Us</h4>
-                                  <p className="text-xs text-muted-foreground mb-2 leading-tight">
-                                    Daily moments & stories
-                                  </p>
-                                  
-                                  {/* Handle */}
-                                  <div className="glass rounded-full px-2 py-1 group-hover:bg-primary/20 transition-colors duration-300">
-                                    <span className="text-primary font-medium text-xs">@craft_cafe.dn</span>
-                                  </div>
-
-                                  {/* Hover Effect */}
-                                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
-                                </div>
-                              </div>
-
-                              {/* Decorative glow */}
-                              <div className="absolute -z-10 inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/10 rounded-2xl blur-xl scale-0 group-hover:scale-110 transition-all duration-500" />
-                            </div>
-                          );
-                        }
-
+                      {row.smallImages && row.smallImages.length > 0 ? row.smallImages.map((image, index) => {
                         // Handle regular images
                         return (
-            <div 
-              key={index}
+                          <div 
+                            key={index}
                             className="group relative cursor-pointer animate-scale-in"
                             style={{ animationDelay: `${(rowIndex * 5 + index + 1) * 0.1}s` }}
                             onClick={() => setSelectedImage(image)}
-            >
+                          >
                             <div className="glass-card rounded-2xl overflow-hidden hover-lift transition-all duration-500 group-hover:shadow-2xl">
                               <div className="aspect-square overflow-hidden relative">
-                <img 
-                  src={image.src} 
-                  alt={image.alt}
-                  className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
+                                <img 
+                                  src={image.src} 
+                                  alt={image.alt}
+                                  className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
+                                  loading="lazy"
+                                />
                                 
                                 {/* Hover overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -358,12 +359,13 @@ const Gallery = () => {
                             <div className="absolute -z-10 inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl blur-xl scale-0 group-hover:scale-110 transition-all duration-500" />
                           </div>
                         );
-                      })}
-              </div>
+                      }) : null}
+                    </div>
                   </>
                 )}
-            </div>
-          ))}
+                </div>
+              </article>
+            ))}
         </div>
       </div>
     </section>
@@ -403,11 +405,8 @@ const Gallery = () => {
                   </div>
                   
                   <div className="flex gap-2">
-                    <button className="glass hover:glass-card rounded-full p-3 text-muted-foreground hover:text-primary transition-all">
-                      <Download className="h-4 w-4" />
-                    </button>
-                    <button className="glass hover:glass-card rounded-full p-3 text-muted-foreground hover:text-primary transition-all">
-                      <Share2 className="h-4 w-4" />
+                    <button className="glass hover:glass-card rounded-full p-3 text-muted-foreground hover:text-primary transition-all" aria-label="Download">
+                      <ZoomIn className="h-4 w-4" />
                     </button>
                   </div>
                 </div>

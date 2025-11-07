@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Playfair Display', 'serif'],
-        body: ['Poppins', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -24,10 +24,11 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         charcoal: "hsl(var(--charcoal))",
-        sage: "hsl(var(--sage))",
-        terracotta: "hsl(var(--terracotta))",
-        ivory: "hsl(var(--ivory))",
-        gold: "hsl(var(--gold))",
+        "red-primary": "hsl(var(--red-primary))",
+        coral: "hsl(var(--coral))",
+        burgundy: "hsl(var(--burgundy))",
+        cream: "hsl(var(--cream))",
+        white: "hsl(var(--white))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

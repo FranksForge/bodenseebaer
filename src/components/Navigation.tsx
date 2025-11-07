@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import craftLogo from "@/assets/craft-logo.jpg";
+import bodenseebaerLogo from "@/assets/bodenseebaer-logo-optimized.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,7 +13,7 @@ const Navigation = () => {
       setIsScrolled(scrollPosition > 50);
 
       // Determine active section
-      const sections = ["story", "menu", "gallery", "community", "location"];
+      const sections = ["story", "gallery", "location"];
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -46,11 +46,9 @@ const Navigation = () => {
   };
 
   const navLinks = [
-    { id: "story", label: "Our Story", icon: "story" },
-    { id: "menu", label: "Menu", icon: "menu" },
-    { id: "gallery", label: "Gallery", icon: "gallery" },
-    { id: "community", label: "Community", icon: "community" },
-    { id: "location", label: "Visit Us", icon: "location" },
+    { id: "story", label: "Kommen Sie herein", icon: "story" },
+    { id: "gallery", label: "Produkte", icon: "gallery" },
+    { id: "location", label: "Besuchen Sie uns", icon: "location" },
   ];
 
   return (
@@ -59,7 +57,7 @@ const Navigation = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
           isScrolled
             ? "glass-card shadow-lg border-b border-white/10"
-            : "bg-transparent"
+            : "bg-gradient-to-b from-black/70 via-black/50 to-transparent backdrop-blur-sm"
         }`}
       >
         <div className="container-modern">
@@ -71,9 +69,9 @@ const Navigation = () => {
             >
               <div className="relative">
                 <img
-                  src={craftLogo}
-                  alt="Craft Café"
-                  className="h-12 w-12 rounded-full object-cover transition-all duration-300 group-hover:shadow-lg"
+                  src={bodenseebaerLogo}
+                  alt="Bodenseebär"
+                  className="h-12 w-12 rounded-full object-contain transition-all duration-300 group-hover:shadow-lg"
                 />
                 {/* Subtle glow effect */}
                 <div className="absolute inset-0 rounded-full bg-primary/20 blur-md scale-0 group-hover:scale-110 transition-all duration-300 -z-10" />
@@ -82,14 +80,15 @@ const Navigation = () => {
                 <span
                   className={`font-display text-xl font-semibold transition-all duration-300 ${
                     isScrolled ? "text-foreground" : "text-white text-shadow-soft"
-                  } group-hover:text-gradient`}
+                  }`}
                 >
-                  Craft Café
+                  <span className={isScrolled ? "text-foreground" : "text-white"}>Bodensee</span>
+                  <span className="text-primary">bär</span>
                 </span>
                 <span className={`text-xs opacity-70 transition-all ${
                   isScrolled ? "text-muted-foreground" : "text-white/70"
                 }`}>
-                  Da Nang
+                  Hagnau am Bodensee
                 </span>
               </div>
             </button>
@@ -97,7 +96,7 @@ const Navigation = () => {
             {/* Desktop Navigation with enhanced styling */}
             <div className="hidden md:flex items-center">
               <div className={`flex items-center gap-2 rounded-full px-6 py-2 transition-all duration-300 ${
-                isScrolled ? "glass" : "bg-white/10 backdrop-blur-sm"
+                isScrolled ? "glass" : "bg-black/40 backdrop-blur-md border border-white/20"
               }`}>
                 {navLinks.map((link, index) => {
                   const isVisitUs = link.id === "location";
@@ -116,13 +115,13 @@ const Navigation = () => {
                         : // Special styling for "Menu" (add border)
                           isMenu && isScrolled 
                           ? "border border-primary/30 text-foreground hover:text-primary hover:bg-primary/10 hover:border-primary" 
-                          : activeSection === link.id
+                            : activeSection === link.id
                             ? isScrolled 
                               ? "bg-primary/20 text-primary" 
-                              : "bg-white/20 text-white"
+                              : "bg-white/25 text-white shadow-sm"
                             : isScrolled 
                               ? "text-foreground hover:text-primary hover:bg-primary/10" 
-                              : "text-white/90 hover:text-white hover:bg-white/10"
+                              : "text-white hover:text-white hover:bg-white/20 shadow-sm"
                     }`}
                   >
                     <span className="relative z-10">{link.label}</span>
@@ -205,7 +204,7 @@ const Navigation = () => {
             {/* Mobile menu footer */}
             <div className="border-t border-border/50 pt-4 mt-4">
               <p className="text-sm text-muted-foreground text-center">
-                Crafted Coffee. Crafted Moments.
+                Alles für den See. Alles für Sie.
               </p>
             </div>
           </div>

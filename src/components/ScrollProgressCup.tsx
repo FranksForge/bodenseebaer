@@ -110,136 +110,142 @@ const ScrollProgressCup = () => {
         </div>
       )}
 
-      {/* Coffee Cup Container */}
+      {/* Progress Container */}
       <div className="relative">
         <div className={`group glass-card rounded-full p-2 transition-all duration-300 pointer-events-auto ${
           showVisitUsAnimation ? 'animate-bounce scale-110 rotate-3' : 'hover:scale-105'
         }`}>
-        {/* Coffee Cup SVG */}
+        {/* Shopping Bag Progress Indicator SVG */}
         <svg
-          width="35"
-          height="35"
-          viewBox="0 0 100 100"
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
           className="drop-shadow-sm"
         >
           {/* Gradient Definitions */}
           <defs>
-            <linearGradient id="coffeeGradient" x1="0%" y1="100%" x2="0%" y2="0%">
-              <stop offset="0%" stopColor="#8B4513" />
-              <stop offset="50%" stopColor="#A0522D" />
-              <stop offset="100%" stopColor="#D2B48C" />
-            </linearGradient>
-            
-            <linearGradient id="cupGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(139, 69, 19, 0.1)" />
-              <stop offset="100%" stopColor="rgba(210, 180, 140, 0.1)" />
+            <linearGradient id="productsGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stopColor="#DC2626" />
+              <stop offset="50%" stopColor="#EF4444" />
+              <stop offset="100%" stopColor="#FCA5A5" />
             </linearGradient>
 
-            {/* Clip path for coffee fill */}
-            <clipPath id="cupClip">
-              <path d="M25 25 L25 75 Q25 80 30 80 L60 80 Q65 80 65 75 L65 25 Z" />
+            {/* Clip path for products fill - using the bag shape */}
+            <clipPath id="bagClip">
+              <path d="M16.0004 9V6C16.0004 3.79086 14.2095 2 12.0004 2C9.79123 2 8.00037 3.79086 8.00037 6V9M3.59237 10.352L2.99237 16.752C2.82178 18.5717 2.73648 19.4815 3.03842 20.1843C3.30367 20.8016 3.76849 21.3121 4.35839 21.6338C5.0299 22 5.94374 22 7.77142 22H16.2293C18.057 22 18.9708 22 19.6423 21.6338C20.2322 21.3121 20.6971 20.8016 20.9623 20.1843C21.2643 19.4815 21.179 18.5717 21.0084 16.752L20.4084 10.352C20.2643 8.81535 20.1923 8.04704 19.8467 7.46616C19.5424 6.95458 19.0927 6.54511 18.555 6.28984C17.9444 6 17.1727 6 15.6293 6L8.37142 6C6.82806 6 6.05638 6 5.44579 6.28984C4.90803 6.54511 4.45838 6.95458 4.15403 7.46616C3.80846 8.04704 3.73643 8.81534 3.59237 10.352Z" />
             </clipPath>
           </defs>
 
-          {/* Cup Background */}
+          {/* Original Shopping Bag Outline */}
           <path 
-            d="M25 25 L25 75 Q25 80 30 80 L60 80 Q65 80 65 75 L65 25 Z" 
-            fill="url(#cupGradient)"
-            stroke="rgba(139, 69, 19, 0.3)"
-            strokeWidth="1"
+            d="M16.0004 9V6C16.0004 3.79086 14.2095 2 12.0004 2C9.79123 2 8.00037 3.79086 8.00037 6V9M3.59237 10.352L2.99237 16.752C2.82178 18.5717 2.73648 19.4815 3.03842 20.1843C3.30367 20.8016 3.76849 21.3121 4.35839 21.6338C5.0299 22 5.94374 22 7.77142 22H16.2293C18.057 22 18.9708 22 19.6423 21.6338C20.2322 21.3121 20.6971 20.8016 20.9623 20.1843C21.2643 19.4815 21.179 18.5717 21.0084 16.752L20.4084 10.352C20.2643 8.81535 20.1923 8.04704 19.8467 7.46616C19.5424 6.95458 19.0927 6.54511 18.555 6.28984C17.9444 6 17.1727 6 15.6293 6L8.37142 6C6.82806 6 6.05638 6 5.44579 6.28984C4.90803 6.54511 4.45838 6.95458 4.15403 7.46616C3.80846 8.04704 3.73643 8.81534 3.59237 10.352Z" 
+            stroke="rgba(220, 38, 38, 0.8)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="rgba(220, 38, 38, 0.1)"
           />
 
-          {/* Coffee Fill */}
-          <g clipPath="url(#cupClip)">
+          {/* Products Fill (Progress) */}
+          <g clipPath="url(#bagClip)">
+            {/* Main fill - from bottom up (bag interior is roughly from y=10 to y=21) */}
             <rect
-              x="25"
-              y={25 + (50 * (1 - scrollProgress / 100))}
-              width="40"
-              height={50 * (scrollProgress / 100)}
-              fill="url(#coffeeGradient)"
+              x="4"
+              y={10 + (11 * (1 - scrollProgress / 100))}
+              width="16"
+              height={11 * (scrollProgress / 100)}
+              fill="url(#productsGradient)"
               className="transition-all duration-100 ease-out"
             />
+            
+            {/* Product icons inside bag (when filled) */}
+            {scrollProgress > 10 && (
+              <g opacity={Math.min(scrollProgress / 100, 1)}>
+                {/* Badeschuhe icon */}
+                {scrollProgress > 15 && (
+                  <circle cx="9" cy={18 - (scrollProgress * 0.08)} r="1.2" fill="rgba(255, 255, 255, 0.95)" className="transition-all duration-200" />
+                )}
+                {/* Tasche icon */}
+                {scrollProgress > 35 && (
+                  <rect x="11.5" y={18 - (scrollProgress * 0.09)} width="1.8" height="1.2" rx="0.3" fill="rgba(255, 255, 255, 0.95)" className="transition-all duration-200" />
+                )}
+                {/* Seemode icon */}
+                {scrollProgress > 55 && (
+                  <circle cx="15" cy={18 - (scrollProgress * 0.1)} r="1" fill="rgba(255, 255, 255, 0.95)" className="transition-all duration-200" />
+                )}
+              </g>
+            )}
           </g>
 
-          {/* Cup Outline */}
-          <path 
-            d="M25 25 L25 75 Q25 80 30 80 L60 80 Q65 80 65 75 L65 25" 
-            fill="none"
-            stroke="rgba(139, 69, 19, 0.6)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-
-          {/* Cup Handle */}
-          <path 
-            d="M65 35 Q75 35 75 45 Q75 55 65 55" 
-            fill="none"
-            stroke="rgba(139, 69, 19, 0.6)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-
-          {/* Coffee Surface (when filled) */}
+          {/* Products Surface Line (when filled) */}
           {scrollProgress > 5 && (
-            <ellipse
-              cx="45"
-              cy={25 + (50 * (1 - scrollProgress / 100))}
-              rx="18"
-              ry="2"
-              fill="rgba(139, 69, 19, 0.8)"
+            <line
+              x1="5"
+              y1={10 + (11 * (1 - scrollProgress / 100))}
+              x2="19"
+              y2={10 + (11 * (1 - scrollProgress / 100))}
+              stroke="rgba(255, 255, 255, 0.6)"
+              strokeWidth="1"
               className="transition-all duration-100 ease-out"
             />
           )}
 
-          {/* Steam Effect (when nearly full) */}
+          {/* Spilling Products Animation (when nearly full) */}
           {scrollProgress > 80 && (
             <g opacity={Math.min((scrollProgress - 80) / 20, 1)}>
-              <path 
-                d="M40 20 Q42 15 40 10" 
-                fill="none"
-                stroke="rgba(255, 255, 255, 0.6)"
-                strokeWidth="1"
-                strokeLinecap="round"
-                className="animate-pulse"
-              />
-              <path 
-                d="M45 22 Q47 17 45 12" 
-                fill="none"
-                stroke="rgba(255, 255, 255, 0.6)"
-                strokeWidth="1"
-                strokeLinecap="round"
-                className="animate-pulse"
-                style={{ animationDelay: '0.5s' }}
-              />
-              <path 
-                d="M50 20 Q52 15 50 10" 
-                fill="none"
-                stroke="rgba(255, 255, 255, 0.6)"
-                strokeWidth="1"
-                strokeLinecap="round"
-                className="animate-pulse"
-                style={{ animationDelay: '1s' }}
-              />
+              {/* Badeschuhe */}
+              <circle cx="8" cy="8" r="1.2" fill="#DC2626" className="animate-bounce" />
+              {/* Tasche */}
+              <rect x="11.5" y="7.5" width="1.5" height="1" rx="0.2" fill="#EF4444" className="animate-bounce" style={{ animationDelay: '0.2s' }} />
+              {/* Seemode */}
+              <circle cx="16" cy="8.5" r="1" fill="#F87171" className="animate-bounce" style={{ animationDelay: '0.4s' }} />
             </g>
           )}
 
-          {/* Coffee Overflow Effect (Visit Us Animation) */}
+          {/* Products Flying Out (Visit Us Animation) */}
           {showVisitUsAnimation && (
-            <g className="animate-pulse">
-              {/* Overflow droplets */}
-              <circle cx="30" cy="22" r="1.5" fill="url(#coffeeGradient)" opacity="0.8" />
-              <circle cx="35" cy="20" r="1" fill="url(#coffeeGradient)" opacity="0.6" />
-              <circle cx="55" cy="21" r="1.2" fill="url(#coffeeGradient)" opacity="0.7" />
-              <circle cx="60" cy="23" r="0.8" fill="url(#coffeeGradient)" opacity="0.5" />
-              
-              {/* Overflow stream */}
-              <path 
-                d="M35 25 Q32 20 30 18" 
-                fill="none"
-                stroke="url(#coffeeGradient)"
-                strokeWidth="2"
-                strokeLinecap="round"
+            <g>
+              {/* Product 1 - Badeschuhe */}
+              <circle 
+                cx="7" 
+                cy="6" 
+                r="1.5" 
+                fill="#DC2626" 
+                className="animate-ping"
+                opacity="0.8"
+              />
+              {/* Product 2 - Tasche */}
+              <rect 
+                x="11.5" 
+                y="5.5" 
+                width="2" 
+                height="1.5" 
+                rx="0.3" 
+                fill="#EF4444" 
+                className="animate-ping"
+                opacity="0.7"
+                style={{ animationDelay: '0.3s' }}
+              />
+              {/* Product 3 - Seemode */}
+              <circle 
+                cx="17" 
+                cy="6.5" 
+                r="1.3" 
+                fill="#F87171" 
+                className="animate-ping"
                 opacity="0.6"
+                style={{ animationDelay: '0.6s' }}
+              />
+              {/* Sparkle effect */}
+              <path 
+                d="M12 4 L12 3 M12 4 L13 4 M12 4 L12 5 M12 4 L11 4" 
+                stroke="#DC2626" 
+                strokeWidth="1.2" 
+                strokeLinecap="round"
+                className="animate-pulse"
+                opacity="0.9"
               />
             </g>
           )}
@@ -255,16 +261,16 @@ const ScrollProgressCup = () => {
         </div>
         </div>
 
-        {/* "Grab your coffee now!" Message */}
+        {/* "Visit us now!" Message */}
         {showMessage && (
           <div className="absolute -left-48 top-1/2 -translate-y-1/2 animate-fade-in-up pointer-events-auto">
             <div className="relative">
               <div className="glass-card rounded-2xl px-4 py-3 shadow-2xl border-2 border-primary/20">
                 <div className="flex items-center gap-2">
-                  <span className="text-2xl">☕</span>
+                  <span className="text-2xl">🛍️</span>
                   <div>
-                    <p className="text-sm font-bold text-primary">Grab your coffee now!</p>
-                    <p className="text-xs text-muted-foreground">Visit us at our café</p>
+                    <p className="text-sm font-bold text-primary">Besuchen Sie uns!</p>
+                    <p className="text-xs text-muted-foreground">In unserem Geschäft</p>
                   </div>
                 </div>
                 

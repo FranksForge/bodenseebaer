@@ -2,53 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations */
+@layer base {
+  /* Optimize font rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Reduce layout shifts */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Craft Café Design System - Nature-infused palette */
-    --background: 40 33% 97%;
-    --foreground: 0 0% 20%;
+    /* Bodenseebär Design System - Red theme palette */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Sage green primary */
-    --primary: 95 18% 65%;
-    --primary-foreground: 0 0% 20%;
+    /* Vibrant red primary */
+    --primary: 0 75% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Warm terracotta secondary */
-    --secondary: 15 50% 50%;
+    /* Warm coral/secondary red */
+    --secondary: 8 65% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted gold */
-    --muted: 40 25% 85%;
-    --muted-foreground: 0 0% 40%;
+    /* Light red-gray muted */
+    --muted: 0 10% 92%;
+    --muted-foreground: 0 5% 35%;
 
-    /* Accent sage */
-    --accent: 95 18% 65%;
-    --accent-foreground: 0 0% 20%;
+    /* Accent red */
+    --accent: 355 70% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 20% 90%;
-    --input: 40 20% 90%;
-    --ring: 95 18% 65%;
+    --border: 0 10% 88%;
+    --input: 0 10% 88%;
+    --ring: 0 75% 50%;
 
     --radius: 0.75rem;
 
-    /* Custom design tokens */
-    --sage: 95 18% 65%;
-    --terracotta: 15 50% 50%;
-    --ivory: 40 33% 97%;
-    --charcoal: 0 0% 20%;
-    --gold: 40 35% 75%;
+    /* Custom design tokens - Red theme */
+    --red-primary: 0 75% 50%;
+    --coral: 8 65% 55%;
+    --burgundy: 350 45% 30%;
+    --charcoal: 0 0% 15%;
+    --cream: 30 25% 92%;
+    --white: 0 0% 100%;
     
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -190,7 +207,7 @@ All colors MUST be HSL.
 
   .hover-glow:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(95, 18, 65, 0.3);
+    box-shadow: 0 10px 30px rgba(200, 50, 50, 0.3);
   }
 
   .hover-scale {
