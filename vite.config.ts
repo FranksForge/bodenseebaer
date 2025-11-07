@@ -38,7 +38,11 @@ export default defineConfig({
               id.includes('@radix-ui') ||
               id.includes('react-hook-form') ||
               id.includes('react-day-picker') ||
-              id.includes('react-resizable-panels')
+              id.includes('react-resizable-panels') ||
+              id.includes('next-themes') ||
+              id.includes('embla-carousel-react') ||
+              id.includes('sonner') ||
+              id.includes('recharts')
             ) {
               return 'vendor-react';
             }
