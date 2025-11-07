@@ -33,12 +33,12 @@ const Hero = () => {
     };
   }, []);
 
-  // Slow zoom animation (0% to 20% over 20 seconds, one-way, stops at max)
+  // Smooth zoom animation (0% to 30% over 15 seconds, one-way, stops at max)
   useEffect(() => {
     const startTime = Date.now();
-    const duration = 20000; // 20 seconds
+    const duration = 15000; // 15 seconds (faster than before)
     const minScale = 1.0;
-    const maxScale = 1.2; // 20% zoom
+    const maxScale = 1.3; // 30% zoom
 
     const animate = () => {
       const elapsed = Date.now() - startTime;
