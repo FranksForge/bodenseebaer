@@ -25,21 +25,22 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       output: {
-        // Chunk splitting for better caching and parallel loading
+        // Chunk splitting for better caching
+        // Group all React dependencies together to avoid loading order issues
         manualChunks: (id) => {
-          // Vendor chunks
           if (id.includes('node_modules')) {
-            // React core
-            if (id.includes('react') || id.includes('react-dom')) {
+            // All React-related dependencies in one chunk to ensure proper loading order
+            if (
+              id.includes('react') ||
+              id.includes('react-dom') ||
+              id.includes('react-router') ||
+              id.includes('@tanstack/react-query') ||
+              id.includes('@radix-ui') ||
+              id.includes('react-hook-form') ||
+              id.includes('react-day-picker') ||
+              id.includes('react-resizable-panels')
+            ) {
               return 'vendor-react';
-            }
-            // Router
-            if (id.includes('react-router')) {
-              return 'vendor-router';
-            }
-            // UI libraries
-            if (id.includes('@radix-ui')) {
-              return 'vendor-ui';
             }
             // Icons
             if (id.includes('lucide-react')) {
