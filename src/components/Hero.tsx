@@ -62,7 +62,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-slate-900">
+    <section className="relative h-screen w-full overflow-hidden bg-slate-800">
       {/* Background image with enhanced parallax and slow zoom */}
       {/* Preload image with hidden img element for faster loading */}
       <img 
@@ -78,18 +78,19 @@ const Hero = () => {
         style={{
           backgroundImage: `url(${heroImage})`,
           transform: `translateY(${scrollY * 0.5}px) scale(${zoomScale})`,
-          backgroundColor: '#0f172a', // Fallback color matching the image dark tones
+          backgroundColor: '#1e293b', // Slightly lighter fallback to lift the hero tone
+          filter: 'brightness(1.12) saturate(1.05)',
           opacity: imageLoaded ? 1 : 0.3, // Show partial opacity while loading
         }}
       >
-        {/* Modern gradient overlay - lighter for better visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/45" />
-        {/* Additional top gradient for navbar contrast - lighter */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-transparent h-32" />
+        {/* Modern gradient overlay - maintain darker atmosphere */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/50" />
+        {/* Additional top gradient for navbar contrast - darker */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-transparent h-32 pointer-events-none" />
         
         {/* Subtle pattern overlay */}
         <div 
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-[0.18]"
           style={{
             backgroundImage: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(255,255,255,0.1) 0%, transparent 50%)`,
           }}
@@ -142,7 +143,7 @@ const Hero = () => {
 
           {/* Additional tagline */}
           <p className="animate-on-scroll fade-up animate-fade-in-up stagger-3 mt-6 text-lg text-white/80 md:text-xl">
-            Seemode • Taschen • Badeschuhe • Accessoires • Kaltgetränke • Und Vieles mehr
+            Seemode • Taschen • Badeschuhe • Accessoires • Souvenirs • Kaltgetränke • Und Vieles mehr
           </p>
         </div>
 
@@ -172,7 +173,7 @@ const Hero = () => {
       {/* Ambient light effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
-          className="absolute w-96 h-96 rounded-full bg-primary/5 blur-3xl transition-all duration-1000 ease-out"
+          className="absolute w-96 h-96 rounded-full bg-primary/12 blur-3xl transition-all duration-1000 ease-out"
           style={{
             left: `${mousePosition.x * 0.5}%`,
             top: `${mousePosition.y * 0.5}%`,

@@ -19,17 +19,17 @@ import mainUndvielmehr1 from "@/assets/products/group3/main_undvielmehr1.jpg";
 import tasche5 from "@/assets/products/group3/tasche5.JPG";
 import tasche6 from "@/assets/products/group3/tasche6.JPG";
 
-// Group 1: Badeschuhe + Produktvielfalt
+// Group 1: Badeschuhe + Souvenirs
 const group1 = {
-  title: "Badeschuhe & Accessoires",
-  subtitle: "Für sicheren Stand am See",
+  title: "Badeschuhe & Souvenirs",
+  subtitle: "Für sicheren Stand und besondere Erinnerungen",
   smallImages: [
     { src: badeschuhe0, alt: "Badeschuhe Auswahl - Bodenseebär", category: "Badeschuhe" },
     { src: badeschuh1, alt: "Badeschuhe - Modell 1", category: "Badeschuhe" },
     { src: badeschuh2, alt: "Badeschuhe - Modell 2", category: "Badeschuhe" },
     { src: badeschuh3, alt: "Badeschuhe - Modell 3", category: "Badeschuhe" },
   ],
-  mainImage: { src: mainUndvielesmehr2, alt: "Produktvielfalt - Bodenseebär Hagnau", category: "Vieles Mehr" },
+  mainImage: { src: mainUndvielesmehr2, alt: "Souvenir Highlights - Bodenseebär Hagnau", category: "Souvenirs" },
 };
 
 // Group 2: Taschen + Seemode
@@ -45,17 +45,17 @@ const group2 = {
   mainImage: { src: mainSeemode, alt: "Seemode Kollektion - Bodenseebär", category: "Seemode" },
 };
 
-// Group 3: Taschen + Alles für den See + Vieles mehr
+// Group 3: Accessoires + Vieles mehr
 const group3 = {
-  title: "Und vieles mehr",
-  subtitle: "Entdecken Sie unsere Vielfalt am schönen Bodensee",
+  title: "Accessoires & Vieles mehr",
+  subtitle: "Praktische Begleiter und besondere Fundstücke vom Bodensee",
   smallImages: [
     { src: tasche5, alt: "Tasche - Modell 5", category: "Taschen" },
     { src: tasche6, alt: "Tasche - Modell 6", category: "Taschen" },
     { src: allesfuerdensee1, alt: "Alles für den See - Kollektion 1", category: "Seemode" },
     { src: allesfuerdensee2, alt: "Alles für den See - Kollektion 2", category: "Seemode" },
   ],
-  mainImage: { src: mainUndvielmehr1, alt: "Weitere Produkte - Vieles mehr am Bodensee", category: "Vieles Mehr" },
+  mainImage: { src: mainUndvielmehr1, alt: "Souvenirs und mehr - Erinnerungen vom Bodensee", category: "Souvenirs" },
 };
 
 const galleryRows = [
@@ -166,6 +166,8 @@ const Gallery = () => {
               <span className="text-base font-medium text-charcoal">Badeschuhe</span>
               <span className="text-primary">•</span>
               <span className="text-base font-medium text-charcoal">Accessoires</span>
+              <span className="text-primary">•</span>
+              <span className="text-base font-medium text-charcoal">Souvenirs</span>
               <span className="text-primary">•</span>
               <span className="text-base font-medium text-charcoal">Kaltgetränke</span>
               <span className="text-primary">•</span>

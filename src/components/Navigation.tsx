@@ -57,7 +57,7 @@ const Navigation = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
           isScrolled
             ? "glass-card shadow-lg border-b border-white/10"
-            : "bg-gradient-to-b from-black/70 via-black/50 to-transparent backdrop-blur-sm"
+            : "bg-white/15 backdrop-blur-xl border-b border-white/30 shadow-[0_20px_60px_rgba(15,23,42,0.18)]"
         }`}
       >
         <div className="container-modern">
@@ -78,15 +78,19 @@ const Navigation = () => {
               </div>
               <div className="flex flex-col">
                 <span
-                  className={`font-display text-xl font-semibold transition-all duration-300 ${
-                    isScrolled ? "text-foreground" : "text-white text-shadow-soft"
+                  className={`font-display text-xl font-semibold tracking-tight transition-all duration-300 ${
+                    isScrolled
+                      ? "text-foreground"
+                      : "text-white drop-shadow-[0_6px_18px_rgba(15,23,42,0.75)]"
                   }`}
                 >
                   <span className={isScrolled ? "text-foreground" : "text-white"}>Bodensee</span>
                   <span className="text-primary">bär</span>
                 </span>
-                <span className={`text-xs opacity-70 transition-all ${
-                  isScrolled ? "text-muted-foreground" : "text-white/70"
+                <span className={`text-xs font-medium tracking-[0.08em] uppercase transition-all ${
+                  isScrolled
+                    ? "text-muted-foreground"
+                    : "text-white drop-shadow-[0_4px_14px_rgba(15,23,42,0.65)]"
                 }`}>
                   Hagnau am Bodensee
                 </span>
@@ -96,7 +100,7 @@ const Navigation = () => {
             {/* Desktop Navigation with enhanced styling */}
             <div className="hidden md:flex items-center">
               <div className={`flex items-center gap-2 rounded-full px-6 py-2 transition-all duration-300 ${
-                isScrolled ? "glass" : "bg-black/40 backdrop-blur-md border border-white/20"
+                isScrolled ? "glass" : "bg-white/25 backdrop-blur-lg border border-white/50 shadow-[0_10px_30px_rgba(15,23,42,0.15)]"
               }`}>
                 {navLinks.map((link, index) => {
                   const isVisitUs = link.id === "location";
@@ -121,7 +125,7 @@ const Navigation = () => {
                               : "bg-white/25 text-white shadow-sm"
                             : isScrolled 
                               ? "text-foreground hover:text-primary hover:bg-primary/10" 
-                              : "text-white hover:text-white hover:bg-white/20 shadow-sm"
+                              : "text-white hover:text-white hover:bg-white/30 shadow-sm"
                     }`}
                   >
                     <span className="relative z-10">{link.label}</span>
@@ -147,7 +151,7 @@ const Navigation = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`md:hidden relative p-3 rounded-full transition-all duration-300 ${
-                isScrolled ? "glass hover:bg-primary/10" : "bg-white/10 hover:bg-white/20"
+                isScrolled ? "glass hover:bg-primary/10" : "bg-white/20 hover:bg-white/30"
               }`}
               aria-label="Toggle menu"
             >
