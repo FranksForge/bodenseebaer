@@ -1,5 +1,6 @@
 import { MapPin, Phone, Clock, ShoppingBag, Heart, ArrowUp } from "lucide-react";
 import bodenseebaerLogo from "@/assets/bodenseebaer-logo-optimized.png";
+import sichtbarVorOrtLogo from "@/assets/sichtbar-vor-ort-logo.png";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -129,11 +130,6 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4 text-sm text-white/60">
               <span>© {new Date().getFullYear()} Bodenseebär. Alle Rechte vorbehalten.</span>
-              <div className="hidden md:flex items-center gap-1">
-                <span>Gemacht mit</span>
-                <Heart className="h-3 w-3 text-red-500 fill-current animate-pulse" />
-                <span>am Bodensee</span>
-              </div>
             </div>
             
             <div className="flex items-center gap-4">
@@ -152,12 +148,23 @@ const Footer = () => {
               </button>
             </div>
           </div>
-        </div>
 
-        {/* Decorative tagline */}
-        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-          <div className="glass-dark rounded-full px-6 py-2 text-xs text-white/60 whitespace-nowrap">
-            ✨ Alles für den See. Alles für Sie. ✨
+          <div className="mt-6 flex flex-col items-center gap-2 text-xs text-white/60">
+            <span className="uppercase tracking-[0.2em] text-white/50">Website bereitgestellt durch</span>
+            <a
+              href="https://sichtbar-vor-ort.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
+            >
+              <img
+                src={sichtbarVorOrtLogo}
+                alt="sichtbar-vor-ort.de Logo"
+                className="h-8 w-auto object-contain drop-shadow-lg"
+                loading="lazy"
+              />
+              <span className="text-sm font-medium">sichtbar-vor-ort.de</span>
+            </a>
           </div>
         </div>
       </div>
