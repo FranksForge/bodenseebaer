@@ -39,8 +39,11 @@ const SEO = () => {
       "opens": "00:00",
       "closes": "23:59"
     },
+    // TODO: Replace temporary 24/7 hours above with actual store schedule when available.
     "description": "Bodenseebär in Hagnau am Bodensee - Ihr Shop für Badeschuhe, Taschen, Seemode, Accessoires und mehr. Alles für den perfekten Tag am Bodensee.",
-    "sameAs": [],
+    "sameAs": [
+      "https://maps.app.goo.gl/xW6bVPwRum965cGp9"
+    ],
     "areaServed": {
       "@type": "City",
       "name": "Hagnau am Bodensee"
@@ -50,9 +53,9 @@ const SEO = () => {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Product",
-          "name": "Badeschuhe",
-          "category": "Badeschuhe",
-          "description": "Hochwertige Badeschuhe für sicheren Stand am See - verschiedene Modelle verfügbar"
+          "name": "Seemode",
+          "category": "Seemode",
+          "description": "Trendige Seemode für Damen und Herren am Bodensee"
         }
       },
       {
@@ -68,9 +71,9 @@ const SEO = () => {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Product",
-          "name": "Seemode",
-          "category": "Seemode",
-          "description": "Trendige Seemode für Damen und Herren am Bodensee"
+          "name": "Badeschuhe",
+          "category": "Badeschuhe",
+          "description": "Hochwertige Badeschuhe für sicheren Stand am See - verschiedene Modelle verfügbar"
         }
       },
       {
@@ -80,6 +83,15 @@ const SEO = () => {
           "name": "Accessoires",
           "category": "Accessoires",
           "description": "Accessoires für den perfekten Tag am See"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Souvenirs",
+          "category": "Souvenirs",
+          "description": "Besondere Souvenirs und Erinnerungsstücke vom Bodensee"
         }
       },
       {
@@ -99,9 +111,9 @@ const SEO = () => {
     "@type": "WebSite",
     "name": "Bodenseebär",
     "url": "https://bodenseebaer.sichtbar-seiten.de",
-    "description": "Bodenseebär - Alles für den See. Alles für Sie. Shop in Hagnau am Bodensee für Badeschuhe, Taschen, Seemode, Accessoires und Kaltgetränke.",
+    "description": "Bodenseebär - Alles für den See. Alles für Sie. Shop in Hagnau am Bodensee für Seemode, Taschen, Badeschuhe, Accessoires, Souvenirs und Kaltgetränke.",
     "inLanguage": "de-DE",
-    "keywords": "Badeschuhe, Taschen, Seemode, Accessoires, Kaltgetränke, Bodensee, Hagnau, Shop, Bademode, Strandmode",
+    "keywords": "Seemode, Taschen, Badeschuhe, Accessoires, Souvenirs, Kaltgetränke, Bodensee, Hagnau, Shop, Bademode, Strandmode, Souvenirs Bodensee",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://bodenseebaer.sichtbar-seiten.de?q={search_term_string}",
@@ -114,17 +126,17 @@ const SEO = () => {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Produkte bei Bodenseebär",
-    "description": "Umfassende Produktauswahl: Badeschuhe, Taschen, Seemode, Accessoires und Kaltgetränke",
+    "description": "Umfassende Produktauswahl: Seemode, Taschen, Badeschuhe, Accessoires, Souvenirs und Kaltgetränke",
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
         "item": {
           "@type": "Product",
-          "name": "Badeschuhe",
-          "description": "Hochwertige Badeschuhe für sicheren Stand am See - verschiedene Modelle verfügbar bei Bodenseebär in Hagnau am Bodensee",
-          "category": "Badeschuhe",
-          "keywords": "Badeschuhe, Wasserschuhe, Badeschuhe Bodensee, Badeschuhe kaufen Hagnau"
+          "name": "Seemode",
+          "description": "Trendige Seemode für Damen und Herren am Bodensee - Bademode und Strandmode bei Bodenseebär",
+          "category": "Seemode",
+          "keywords": "Seemode, Bademode, Strandmode, Seemode Bodensee, Bademode Hagnau"
         }
       },
       {
@@ -143,10 +155,10 @@ const SEO = () => {
         "position": 3,
         "item": {
           "@type": "Product",
-          "name": "Seemode",
-          "description": "Trendige Seemode für Damen und Herren am Bodensee - Bademode und Strandmode bei Bodenseebär",
-          "category": "Seemode",
-          "keywords": "Seemode, Bademode, Strandmode, Seemode Bodensee, Bademode Hagnau"
+          "name": "Badeschuhe",
+          "description": "Hochwertige Badeschuhe für sicheren Stand am See - verschiedene Modelle verfügbar bei Bodenseebär in Hagnau am Bodensee",
+          "category": "Badeschuhe",
+          "keywords": "Badeschuhe, Wasserschuhe, Badeschuhe Bodensee, Badeschuhe kaufen Hagnau"
         }
       },
       {
@@ -163,6 +175,17 @@ const SEO = () => {
       {
         "@type": "ListItem",
         "position": 5,
+        "item": {
+          "@type": "Product",
+          "name": "Souvenirs",
+          "description": "Souvenirs und besondere Erinnerungsstücke vom Bodensee - liebevoll ausgewählt bei Bodenseebär",
+          "category": "Souvenirs",
+          "keywords": "Souvenirs Bodensee, Geschenkartikel Bodensee, Andenken Hagnau"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
         "item": {
           "@type": "Product",
           "name": "Kaltgetränke",
