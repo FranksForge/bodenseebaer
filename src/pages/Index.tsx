@@ -32,7 +32,7 @@ const Index = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <div className="relative group">
           <a
-            href="tel:+4917474716412"
+            href="tel:+491743248431"
             className="group glass-card hover:glass-dark rounded-full p-4 shadow-2xl hover-lift transition-all duration-300 hover:scale-110 block"
             aria-label="Rufen Sie uns an"
           >

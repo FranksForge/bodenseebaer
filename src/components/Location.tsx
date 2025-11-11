@@ -157,8 +157,8 @@ const Location = () => {
                     <div>
                       <h3 className="mb-2 text-xl font-semibold text-charcoal">Kontakt</h3>
                       <div className="space-y-2">
-                        <a href="tel:+4917474716412" className="block text-muted-foreground hover:text-primary transition-colors">
-                          +49 174 74716412
+                        <a href="tel:+491743248431" className="block text-muted-foreground hover:text-primary transition-colors">
+                          +49 174 3248431
                         </a>
                         <div className="pt-2">
                           <p className="text-sm font-medium text-charcoal mb-1">Besuchen Sie uns:</p>

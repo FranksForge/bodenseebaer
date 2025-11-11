@@ -11,7 +11,7 @@ const SEO = () => {
     "image": "https://bodenseebaer.sichtbar-seiten.de/og_image.jpg",
     "@id": "https://bodenseebaer.sichtbar-seiten.de",
     "url": "https://bodenseebaer.sichtbar-seiten.de",
-    "telephone": "+4917474716412",
+    "telephone": "+491743248431",
     "priceRange": "€",
     "address": {
       "@type": "PostalAddress",
